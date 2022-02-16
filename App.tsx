@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import MainPage from './Pages/MainPage';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import Categories from './Pages/Categories';
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer theme={{ ...DefaultTheme, colors: { ...DefaultTheme.colors } }}>
+      <Drawer.Navigator initialRouteName="Visão Geral">
+        <Drawer.Screen name="Visão Geral" component={MainPage} />
+        <Drawer.Screen name="Categorias" component={Categories} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
