@@ -4,7 +4,7 @@ import { Text, View } from "react-native-ui-lib";
 
 const PeriodResult = () => {
   return (
-    <View marginT-10 paddingH-15>
+    <View marginV-10 paddingH-15>
       <Text style={styles.text}>RESULTADO DO PERÍODO</Text>
       <View marginT-10 style={styles.card}>
         <View paddingH-10 paddingT-15 row>

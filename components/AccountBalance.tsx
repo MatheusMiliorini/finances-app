@@ -1,13 +1,22 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { RefreshControl, ScrollView, StyleSheet } from "react-native";
 import { Text, View } from "react-native-ui-lib";
+import NumberFormat from "react-number-format";
 
-const AccountBalance = () => {
+const AccountBalance = (props: { balance: number }) => {
+
   return (
     <View marginT-10 paddingH-15>
       <Text style={styles.text}>SALDO DAS CONTAS</Text>
       <View center marginT-10 style={styles.card}>
-        <Text style={styles.mainValue}>R$ 1.500,00</Text>
+        <NumberFormat
+          thousandSeparator="."
+          decimalSeparator=","
+          decimalScale={2}
+          fixedDecimalScale={true}
+          prefix="R$ "
+          value={props.balance} displayType="text" renderText={value => <Text style={styles.mainValue}>{value}</Text>}
+        />
         <Text style={styles.subText}>Saldo em 14/02/2022</Text>
       </View>
     </View>
